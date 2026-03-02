@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .lang-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .lang-btn:hover {
+            background-color: #2980b9;
+        }
+        section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skills-list li {
+            background-color: #ecf0f1;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1 id="name">[Your Name]</h1>
+                <button class="lang-btn" onclick="toggleLanguage()">中文 / English</button>
+            </div>
+        </header>
+
+        <section>
+            <h2 id="basic-info-title">基本信息</h2>
+            <p id="school">学校/专业：[Your University/Your Major]</p>
+            <p id="research">研究兴趣/职业方向：[Your Research Interests]</p>
+            <p id="email">邮箱：[your.email@example.com]</p>
+        </section>
+
+        <section>
+            <h2 id="about-title">个人简介</h2>
+            <p id="about">[Brief introduction about yourself]</p>
+        </section>
+
+        <section>
+            <h2 id="skills-title">技能</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>数据分析</li>
+                <li>计量/统计</li>
+                <li>写作</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 id="education-title">教育经历</h2>
+            <p id="education">[Your Education Experience]</p>
+        </section>
+
+        <footer>
+            <p id="last-updated">最后更新日期：[Last Updated: 2024-01-01]</p>
+        </footer>
+    </div>
+
+    <script>
+        let isChinese = true;
+
+        const translations = {
+            "name": {
+                "zh": "[你的姓名]",
+                "en": "[Your Name]"
+            },
+            "basic-info-title": {
+                "zh": "基本信息",
+                "en": "Basic Information"
+            },
+            "school": {
+                "zh": "学校/专业：[你的学校/专业]",
+                "en": "University/Major: [Your University/Your Major]"
+            },
+            "research": {
+                "zh": "研究兴趣/职业方向：[你的研究兴趣]",
+                "en": "Research Interests/Career Goals: [Your Research Interests]"
+            },
+            "email": {
+                "zh": "邮箱：[你的邮箱]",
+                "en": "Email: [your.email@example.com]"
+            },
+            "about-title": {
+                "zh": "个人简介",
+                "en": "About Me"
+            },
+            "about": {
+                "zh": "[你的个人简介]",
+                "en": "[Brief introduction about yourself]"
+            },
+            "skills-title": {
+                "zh": "技能",
+                "en": "Skills"
+            },
+            "education-title": {
+                "zh": "教育经历",
+                "en": "Education"
+            },
+            "education": {
+                "zh": "[你的教育经历]",
+                "en": "[Your Education Experience]"
+            },
+            "last-updated": {
+                "zh": "最后更新日期：2024-01-01",
+                "en": "Last Updated: 2024-01-01"
+            }
+        };
+
+        function toggleLanguage() {
+            isChinese = !isChinese;
+            const lang = isChinese ? "zh" : "en";
+
+            for (const id in translations) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = translations[id][lang];
+                }
+            }
+        }
+    </script>
+</body>
+</html>
