@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页 | Personal Homepage</title>
+    <style>
+        /* 基础样式，让页面更美观 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 8px 16px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .en {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switch">
+            <button class="btn" onclick="switchLang('zh')">中文</button>
+            <button class="btn" onclick="switchLang('en')">English</button>
+        </div>
+
+        <!-- 中文内容 -->
+        <div class="zh">
+            <h1>个人主页</h1>
+            <div class="section">
+                <h2>基本信息</h2>
+                <p><strong>姓名：</strong>韩文凤</p>
+                <p><strong>学校/专业：</strong>华东政法大学 会计专业</p>
+                <p><strong>研究兴趣/职业方向：</strong>暂时没有</p>
+                <p><strong>联系方式：</strong>3068368725@qq.com</p>
+            </div>
+
+            <div class="section">
+                <h2>个人简介</h2>
+                <p>安稳完成目前学业，争取全面发展</p>
+            </div>
+
+            <div class="section">
+                <h2>技能</h2>
+                <ul>
+                    <li>Python, R, SQL</li>
+                    <li>数据分析、数据可视化</li>
+                    <li>计量经济学、统计学</li>
+                    <li>学术写作、报告撰写</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>教育经历</h2>
+                <ul>
+                    <li>华东政法大学 会计专业 | 2024.09 - 至今</li>
+                    <li>青岛市即墨区第一中学 | 2021.09 - 2024.06</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <p><strong>最后更新日期：</strong>2026年3月4日</p>
+            </div>
+        </div>
+
+        <!-- 英文内容 -->
+        <div class="en">
+            <h1>Personal Homepage</h1>
+            <div class="section">
+                <h2>Basic Information</h2>
+                <p><strong>Name：</strong>hanwenfeng</p>
+                <p><strong>University/Major：</strong>ECUPL University, Accounting Major</p>
+                <p><strong>Research Interests / Career Goals：</strong>not availiable yet</p>
+                <p><strong>Contact：</strong>3068368725@qq.com</p>
+            </div>
+
+            <div class="section">
+                <h2>About Me</h2>
+                <p>Write your personal introduction here, such as your learning experience, project experience, personal strengths, etc.</p>
+            </div>
+
+            <div class="section">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Python, R, SQL</li>
+                    <li>Data Analysis, Data Visualization</li>
+                    <li>Econometrics, Statistics</li>
+                    <li>Academic Writing, Report Writing</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Education</h2>
+                <ul>
+                    <li>ECUPL University, Accounting Major | 2024.09 - Present</li>
+                    <li>No.1 High School of Jimo,Qingdao High School | 20XX.09 - 20XX.06</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <p><strong>Last Updated：</strong>March 4, 2026</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 语言切换函数
+        function switchLang(lang) {
+            if (lang === 'zh') {
+                document.querySelector('.zh').style.display = 'block';
+                document.querySelector('.en').style.display = 'none';
+                document.documentElement.lang = 'zh-CN';
+            } else {
+                document.querySelector('.zh').style.display = 'none';
+                document.querySelector('.en').style.display = 'block';
+                document.documentElement.lang = 'en';
+            }
+        }
+    </script>
+</body>
+</html>
