@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页 | Personal Homepage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f7f8fa;
+            color: #333;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #4a6cf7;
+            color: white;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #3a5ce2;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #222;
+            margin-bottom: 30px;
+            border-left: 5px solid #4a6cf7;
+            padding-left: 12px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #333;
+            margin: 25px 0 12px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .en {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="lang-switch">
+            <button class="btn" onclick="switchLang('zh')">中文</button>
+            <button class="btn" onclick="switchLang('en')">English</button>
+        </div>
+
+        <!-- 中文 -->
+        <div class="zh">
+            <h1>个人主页</h1>
+            <div class="section">
+                <h2>基本信息</h2>
+                <p><strong>姓名：</strong>韩文凤</p>
+                <p><strong>学校/专业：</strong>华东政法大学 会计专业</p>
+                <p><strong>职业方向：</strong>财务、会计、审计</p>
+                <p><strong>邮箱：</strong>3068368725@qq.com</p>
+            </div>
+
+            <div class="section">
+                <h2>个人简介</h2>
+                <p>认真负责，学习能力强，熟悉会计基础、财务报表、税法等相关知识，具备良好的数据处理与沟通能力。</p>
+            </div>
+
+            <div class="section">
+                <h2>技能</h2>
+                <ul>
+                    <li>会计基础、财务会计、税法</li>
+                    <li>Excel 数据处理</li>
+                    <li>基础英语读写</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>教育经历</h2>
+                <ul>
+                    <li>华东政法大学 | 会计专业 | 2024.09 - 至今</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 英文 -->
+        <div class="en">
+            <h1>Personal Homepage</h1>
+            <div class="section">
+                <h2>Basic Information</h2>
+                <p><strong>Name:</strong>hanwenfeng</p>
+                <p><strong>University & Major:</strong> East China University of Political Science and Law, Accounting major</p>
+                <p><strong>Career Goal:</strong> Accounting, Finance, Auditing</p>
+                <p><strong>Email:</strong>3068368725@qq.com</p>
+            </div>
+
+            <div class="section">
+                <h2>About Me</h2>
+                <p>Serious and responsible, with strong learning ability. Familiar with accounting, financial statements, taxation. Good at data processing and communication.</p>
+            </div>
+
+            <div class="section">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Accounting, Financial Accounting, Taxation</li>
+                    <li>Excel Data Processing</li>
+                    <li>Basic English</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Education</h2>
+                <ul>
+                    <li>East China University of Political Science and Law | Accounting major | 2024.09 - Present</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            if (lang === 'zh') {
+                document.querySelector('.zh').style.display = 'block';
+                document.querySelector('.en').style.display = 'none';
+            } else {
+                document.querySelector('.zh').style.display = 'none';
+                document.querySelector('.en').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
