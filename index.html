@@ -3,166 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人主页 | Personal Homepage</title>
+    <title>贾子木 - 个人主页</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
-
         body {
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background-color: #f7f8fa;
-            color: #333;
-            line-height: 1.7;
-            padding: 20px;
+            background-color: #e8f5e9; /* 柔和绿色背景 */
+            color: #37474f;
+            line-height: 1.6;
         }
-
         .container {
             max-width: 800px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 40px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
             border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-        }
-
-        .lang-switch {
-            text-align: right;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            margin-left: 10px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            background-color: #4a6cf7;
-            color: white;
-            font-size: 14px;
-            transition: 0.2s;
-        }
-
-        .btn:hover {
-            background-color: #3a5ce2;
-        }
-
-        h1 {
-            font-size: 28px;
-            color: #222;
-            margin-bottom: 30px;
-            border-left: 5px solid #4a6cf7;
-            padding-left: 12px;
-        }
-
-        h2 {
-            font-size: 20px;
-            color: #333;
-            margin: 25px 0 12px;
-        }
-
-        .section {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            margin-top: 20px;
             margin-bottom: 20px;
         }
-
-        ul {
-            padding-left: 22px;
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
         }
-
-        li {
-            margin-bottom: 6px;
+        .lang-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
         }
-
-        .en {
+        .lang-btn.active {
+            background-color: #37474f;
+            color: white;
+        }
+        .lang-btn:not(.active) {
+            background-color: #f5f5f5;
+            color: #37474f;
+        }
+        .header {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #263238;
+        }
+        .sub-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tag {
+            background-color: #f5f5f5;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #455a64;
+        }
+        .skill-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ffffff;
+            border: 1px solid #cfd8dc;
+            padding: 10px 24px;
+            border-radius: 24px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #37474f;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #263238;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .card {
+            background-color: #fafafa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #b0bec5;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #37474f;
+        }
+        .info-item {
+            margin-bottom: 12px;
+        }
+        .info-item label {
+            font-size: 14px;
+            color: #607d8b;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .info-item p {
+            font-size: 16px;
+            color: #263238;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .skill-tag {
+            background-color: #e8f5e9;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #2e7d32;
+        }
+        .honor-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .honor-year {
+            background-color: #e0e0e0;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 14px;
+            color: #455a64;
+        }
+        .last-update {
+            text-align: center;
+            font-size: 14px;
+            color: #607d8b;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 20px;
+        }
+        .en-content {
             display: none;
         }
     </style>
 </head>
-
 <body>
     <div class="container">
+        <!-- 语言切换按钮 -->
         <div class="lang-switch">
-            <button class="btn" onclick="switchLang('zh')">中文</button>
-            <button class="btn" onclick="switchLang('en')">English</button>
+            <button class="lang-btn active" onclick="switchLang('zh')">中文</button>
+            <button class="lang-btn" onclick="switchLang('en')">English</button>
         </div>
 
-        <!-- 中文 -->
-        <div class="zh">
-            <h1>个人主页</h1>
+        <!-- 中文内容 -->
+        <div class="zh-content">
+            <div class="header">
+                <h1>韩文凤</h1>
+                <div class="sub-info">
+                    <span class="tag">华东政法大学</span>
+                    <span class="tag">会计学</span>
+                </div>
+                <button class="skill-btn">查看核心技能 →</button>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 20px 0;">
+
             <div class="section">
                 <h2>基本信息</h2>
-                <p><strong>姓名：</strong>韩文凤</p>
-                <p><strong>学校/专业：</strong>华东政法大学 会计专业</p>
-                <p><strong>职业方向：</strong>财务、会计、审计</p>
-                <p><strong>邮箱：</strong>3068368725@qq.com</p>
+                <div class="card">
+                    <div class="info-item">
+                        <label>姓名</label>
+                        <p>韩文凤(Zimu Jia)</p>
+                    </div>
+                    <div class="info-item">
+                        <label>学校</label>
+                        <p>华东政法大学</p>
+                    </div>
+                    <div class="info-item">
+                        <label>专业</label>
+                        <p>会计学</p>
+                    </div>
+                    <div class="info-item">
+                        <label>邮箱</label>
+                        <p>3068368725@qq.com</p>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
                 <h2>个人简介</h2>
-                <p>认真负责，学习能力强，熟悉会计基础、财务报表、税法等相关知识，具备良好的数据处理与沟通能力。</p>
+                <div class="card">
+                    <p>会计专业，认真负责，擅长数据处理，注重规范与细节;严谨细致，熟练财务基础，踏实肯干，追求精准高效</p>
+                </div>
             </div>
 
             <div class="section">
-                <h2>技能</h2>
-                <ul>
-                    <li>会计基础、财务会计、税法</li>
-                    <li>Excel 数据处理</li>
-                    <li>基础英语读写</li>
-                </ul>
+                <h2>核心技能</h2>
+                <div class="skills-container">
+                    <span class="skill-tag">考过英语四级</span>
+                    <span class="skill-tag">考过英语六级</span>
+                    <span class="skill-tag">有驾驶证</span>
+                    <span class="skill-tag">熟练掌握excel表格等</span>
+                </div>
             </div>
 
             <div class="section">
-                <h2>教育经历</h2>
-                <ul>
-                    <li>华东政法大学 | 会计专业 | 2024.09 - 至今</li>
-                </ul>
+                <h2>在校经历</h2>
+                <div class="card">
+                    <h3>曾担任班级学习委员</h3>
+                </div>
+                <div class="card">
+                    <h3>备考初级会计，学习财务法规与实操技能</h3>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>荣誉与证书</h2>
+                <div class="card">
+                    <div class="honor-item">
+                        <span class="honor-year">2025</span>
+                        <span>校三等奖学金</span>
+                    </div>
+                    <div class="honor-item">
+                        <span class="honor-year">2024</span>
+                        <span>优秀团员</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>研究兴趣</h2>
+                <div class="skills-container">
+                    <span class="skill-tag">企业财务会计与信息披露研究</span>
+                    <span class="skill-tag">内部控制与公司治理机制研究</span>
+                    <span class="skill-tag">成本管理与管理会计应用研究</span>
+                    <span class="skill-tag">税务筹划与税收政策效应研究</span>
+                    <span class="skill-tag">大数据与智能财务应用研究</span>
+                </div>
+            </div>
+
+            <div class="last-update">
+                最后更新：2026年3月7日
             </div>
         </div>
 
-        <!-- 英文 -->
-        <div class="en">
-            <h1>Personal Homepage</h1>
+        <!-- 英文内容 -->
+        <div class="en-content">
+            <div class="header">
+                <h1>wenfeng han</h1>
+                <div class="sub-info">
+                    <span class="tag">East China University of Political Science and Law</span>
+                    <span class="tag">Accounting</span>
+                </div>
+                <button class="skill-btn">View Core Skills →</button>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 20px 0;">
+
             <div class="section">
                 <h2>Basic Information</h2>
-                <p><strong>Name:</strong>wenfeng han</p>
-                <p><strong>University & Major:</strong> East China University of Political Science and Law, Accounting major</p>
-                <p><strong>Career Goal:</strong> Accounting, Finance, Auditing</p>
-                <p><strong>Email:</strong>3068368725@qq.com</p>
+                <div class="card">
+                    <div class="info-item">
+                        <label>Name</label>
+                        <p>wenfeng han</p>
+                    </div>
+                    <div class="info-item">
+                        <label>University</label>
+                        <p>East China University of Political Science and Law</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Major</label>
+                        <p>Accounting</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Email</label>
+                        <p>3068368725@qq.com</p>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
-                <h2>About Me</h2>
-                <p>Serious and responsible, with strong learning ability. Familiar with accounting, financial statements, taxation. Good at data processing and communication.</p>
+                <h2>Personal Profile</h2>
+                <div class="card">
+                    <p>Accounting major, responsible and proficient in data processing, emphasizing standards and details; rigorous and meticulous, with solid financial foundation, diligent and practical, pursuing precision and efficiency.</p>
+                </div>
             </div>
 
             <div class="section">
-                <h2>Skills</h2>
-                <ul>
-                    <li>Accounting, Financial Accounting, Taxation</li>
-                    <li>Excel Data Processing</li>
-                    <li>Basic English</li>
-                </ul>
+                <h2>Core Skills</h2>
+                <div class="skills-container">
+                    <span class="skill-tag">Proficient in Python</span>
+                    <span class="skill-tag">WPS Office (National Computer Rank 2)</span>
+                    <span class="skill-tag">Stata Empirical Analysis</span>
+                    <span class="skill-tag">Strong Writing Skills</span>
+                    <span class="skill-tag">Minor in Law</span>
+                </div>
             </div>
 
             <div class="section">
-                <h2>Education</h2>
-                <ul>
-                    <li>East China University of Political Science and Law | Accounting major | 2024.09 - Present</li>
-                </ul>
+                <h2>Experience</h2>
+                <div class="card">
+                    <h3>2025 Summer Practice · School of Law Project</h3>
+                </div>
+                <div class="card">
+                    <h3>Intern at Yingke Law Firm (Hangzhou)</h3>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Honors & Certifications</h2>
+                <div class="card">
+                    <div class="honor-item">
+                        <span class="honor-year">2025</span>
+                        <span>National Computer Rank 2 (WPS Office)</span>
+                    </div>
+                    <div class="honor-item">
+                        <span class="honor-year">2024</span>
+                        <span>University Social Activity Scholarship</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Research Interests</h2>
+                <div class="skills-container">
+                    <span class="skill-tag">Research on Corporate Financial Accounting and Information Disclosure</span>
+                    <span class="skill-tag">Research on Internal Control and Corporate Governance Mechanism</span>
+                    <span class="skill-tag">Research on Cost Management and Management Accounting Application</span>
+                    <span class="skill-tag">Research on Tax Planning and Effects of Tax Policy</span>
+                    <span class="skill-tag">Research on Big Data and Intelligent Finance Application</span>
+                </div>
+            </div>
+
+            <div class="last-update">
+                Last Updated: March 7, 2026
             </div>
         </div>
     </div>
 
     <script>
         function switchLang(lang) {
+            const zhContent = document.querySelector('.zh-content');
+            const enContent = document.querySelector('.en-content');
+            const zhBtn = document.querySelector('.lang-btn:nth-child(1)');
+            const enBtn = document.querySelector('.lang-btn:nth-child(2)');
+            
             if (lang === 'zh') {
-                document.querySelector('.zh').style.display = 'block';
-                document.querySelector('.en').style.display = 'none';
+                zhContent.style.display = 'block';
+                enContent.style.display = 'none';
+                zhBtn.classList.add('active');
+                enBtn.classList.remove('active');
             } else {
-                document.querySelector('.zh').style.display = 'none';
-                document.querySelector('.en').style.display = 'block';
+                zhContent.style.display = 'none';
+                enContent.style.display = 'block';
+                zhBtn.classList.remove('active');
+                enBtn.classList.add('active');
             }
         }
     </script>
